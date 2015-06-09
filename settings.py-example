@@ -3,12 +3,17 @@
 USE_DB = True
 DB_HOST = 'localhost'
 DB_PORT = 27017
+USE_RSS = True
+USE_TWITTER = False
 
 # Twitter Settings
 CONSUMER_KEY = 'your_consumer_key'
 CONSUMER_SECRET = 'your_consumer_secret'
 ACCESS_TOKEN = 'your_access_token'
 ACCESS_TOKEN_SECRET = 'your_access_token_secret'
+
+# PyRSS2Gen RSS feed
+# RSS_OUTFILE = 'path to xml file'
 
 # Thresholds
 EMAIL_THRESHOLD = 20
