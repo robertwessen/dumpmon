@@ -4,11 +4,15 @@ regexes = {
     'email': re.compile(r'[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}', re.I),
     #'ssn' : re.compile(r'\d{3}-?\d{2}-?\d{4}'),
     'hash32': re.compile(r'[^<A-F\d/]([A-F\d]{32})[^A-F\d]', re.I),
+    'ntds_dit': re.compile(r'krbtgt', re.I), # weak match, testing to see what it turns up anyhow
+    'shadow': re.compile(r'^root\:\$.[0-9].\$', re.I), # box been rooted?
+    'passwd': re.compile(r'^root\:x\:0\:0', re.I), # box been compromised?
     'FFF': re.compile(r'FBI\s*Friday', re.I),  # will need to work on this to not match CSS
     'lulz': re.compile(r'(lulzsec|antisec)', re.I),
     'cisco_hash': re.compile(r'enable\s+secret', re.I),
     'cisco_pass': re.compile(r'enable\s+password', re.I),
     'google_api': re.compile(r'\W(AIza.{35})'),
+    'aws_access_key': re.compile(r'(?<![A-Z0-9])[A-Z0-9]{20}(?![A-Z0-9])', re.I), # testing AWS access key regex
     'honeypot': re.compile(r'<dionaea\.capture>', re.I),
     'pgp_private': re.compile(r'BEGIN PGP PRIVATE', re.I),
     'ssh_private': re.compile(r'BEGIN RSA PRIVATE', re.I),
