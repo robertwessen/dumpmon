@@ -5,7 +5,7 @@ regexes = {
     #'ssn' : re.compile(r'\d{3}-?\d{2}-?\d{4}'),
     'hash32': re.compile(r'[^<A-F\d/]([A-F\d]{32})[^A-F\d]', re.I),
     'ntds_dit': re.compile(r'krbtgt', re.I), # weak match, testing to see what it turns up anyhow
-    'shadow': re.compile(r'^root\:\$.[0-9].\$', re.I), # box been rooted?
+    'shadow': re.compile(r'^root\:\$[0-9]\$', re.I), # box been rooted?
     'passwd': re.compile(r'^root\:x\:0\:0', re.I), # box been compromised?
     'FFF': re.compile(r'FBI\s*Friday', re.I),  # will need to work on this to not match CSS
     'lulz': re.compile(r'(lulzsec|antisec)', re.I),
