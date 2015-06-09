@@ -5,7 +5,7 @@ regexes = {
     #'ssn' : re.compile(r'\d{3}-?\d{2}-?\d{4}'),
     'hash32': re.compile(r'[^<A-F\d/]([A-F\d]{32})[^A-F\d]', re.I),
     'hash16': re.compile(r'[^<A-F\d/]([A-F\d]{16})[^A-F\d]', re.I), # early mySQL, others (too many FP?)
-    'mysql_new': re.compile('r[\*^<A-F\d/]([A-F\d]{40})[^A-F\d]', re.I), # later mySQL
+    'mysql_new': re.compile(r'[\*^<A-F\d/]([A-F\d]{40})[^A-F\d]', re.I), # later mySQL
     'ntds_dit': re.compile(r'krbtgt', re.I), # weak match, testing to see what it turns up anyhow
     'shadow': re.compile(r'^root\:\$[0-9]\$', re.I), # box been rooted?
     'passwd': re.compile(r'^root\:x\:0\:0', re.I), # box been compromised?
