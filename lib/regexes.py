@@ -3,10 +3,11 @@ import re
 regexes = {
     'email': re.compile(r'[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}', re.I),
     #'ssn' : re.compile(r'\d{3}-?\d{2}-?\d{4}'),
-    'hash32': re.compile(r'[^<A-F\d/]([A-F\d]{32})[^A-F\d]', re.I),
-    'hash16': re.compile(r'[^<A-F\d/]([A-F\d]{16})[^A-F\d]', re.I), # early mySQL, others (too many FP?)
-    'mysql_new': re.compile(r'[\*^<A-F\d/]([A-F\d]{40})[^A-F\d]', re.I), # later mySQL
-    'ntds_dit': re.compile(r'krbtgt', re.I), # weak match, testing to see what it turns up anyhow
+    'hash32': re.compile(r'[^<0-9a-zA-Z/]([0-9a-zA-Z]{32})[^0-9a-zA-Z]', re.I),
+    'hash16': re.compile(r'[^<0-9a-zA-Z/]([0-9a-zA-Z]{16})[^0-9a-zA-Z]', re.I), # early mySQL, others (too many FP?)
+    'hash40': re.compile(r'[^<0-9a-zA-Z/]([0-9a-zA-Z]{40})[^0-9a-zA-Z]', re.I), # sha1 hashes (too many FP?)
+    'mysql_new': re.compile(r'[\*^<A-F\d/]([A-F\d]{40})[^A-F\d]', re.I), # dumps from later mySQL [ex: * + sha1_digest()]
+    'ntds_dit': re.compile(r'krbtgt', re.I), # weak match, testing to see what it turns up , then will tweak
     'shadow': re.compile(r'^root\:\$[0-9]\$', re.I), # box been rooted?
     'passwd': re.compile(r'^root\:x\:0\:0', re.I), # box been compromised?
     'FFF': re.compile(r'FBI\s*Friday', re.I),  # will need to work on this to not match CSS
