@@ -95,6 +95,11 @@ class Site(object):
                             bot.statuses.update(status=tweet)
                         except TwitterError:
                             pass
+                        # hackish attempt to cobble in a RSS feed output without changing much else
+                        #try:
+                        #    bot.RSS2.blahblah.invokeRSSupdate(tweet)
+                        #except
+                        #    pass
             self.update()
             while self.empty():
                 logging.debug('[*] No results... sleeping')
